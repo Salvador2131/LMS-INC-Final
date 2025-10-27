@@ -1,4 +1,3 @@
-
 import CourseCard from "./CourseCard";
 
 interface Course {
@@ -9,15 +8,16 @@ interface Course {
   category: string;
   progress?: number;
   students?: number;
+  totalStudents?: number;
   startDate?: string;
   schedule?: string;
+  status?: string;
   pais?: string;
   region?: string;
   ciudad?: string;
   concesionario?: string;
   empresa?: string;
   tipo?: string;
-  status?: string;
 }
 
 interface CourseGridProps {
@@ -30,9 +30,11 @@ const CourseGrid = ({ courses, role }: CourseGridProps) => {
     return (
       <div className="text-center py-10">
         <p className="text-muted-foreground">
-          {role === "estudiante" 
-            ? "No estás inscrito en ningún curso todavía." 
-            : "No tienes cursos creados todavía."}
+          {role === "estudiante"
+            ? "No estás inscrito en ningún curso todavía."
+            : role === "profesor"
+            ? "No tienes cursos creados todavía."
+            : "No hay cursos en el sistema."}
         </p>
       </div>
     );

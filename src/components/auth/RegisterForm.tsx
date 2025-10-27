@@ -1,26 +1,41 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { useToast } from "@/components/ui/use-toast";
 import { EyeIcon, EyeOffIcon } from "lucide-react";
+import { registerUser, UserRole } from "@/lib/auth";
+import { useNavigate } from "react-router-dom";
 
 const RegisterForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [role, setRole] = useState("estudiante");
+  const [role, setRole] = useState<UserRole>("estudiante");
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
+  const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (password !== confirmPassword) {
       toast({
         title: "Las contraseñas no coinciden",
@@ -29,25 +44,56 @@ const RegisterForm = () => {
       });
       return;
     }
-    
-    setIsLoading(true);
-    
-    // Simulate registration process
-    setTimeout(() => {
-      console.log("Register attempt:", { name, email, password, role });
-      setIsLoading(false);
+
+    if (password.length < 8) {
       toast({
-        title: "Registro exitoso",
-        description: "Tu cuenta ha sido creada correctamente",
+        title: "Contraseña muy corta",
+        description: "La contraseña debe tener al menos 8 caracteres",
+        variant: "destructive",
       });
-      // Redirect would happen here in a real app
-    }, 1500);
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      const user = await registerUser(email, password, name, role);
+
+      if (user) {
+        console.log("Registration successful:", { email, role: user.role });
+        toast({
+          title: "Registro exitoso",
+          description: `Bienvenido a Aorus INC, ${user.name}`,
+        });
+
+        // Redirección al dashboard
+        navigate("/dashboard");
+      } else {
+        console.log("Registration failed:", { email });
+        toast({
+          title: "Error en el registro",
+          description: "No se pudo crear la cuenta. Inténtalo de nuevo.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error("Registration error:", error);
+      toast({
+        title: "Error en el registro",
+        description: "Ocurrió un error inesperado. Inténtalo de nuevo.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
     <Card className="w-full max-w-md">
       <CardHeader>
-        <CardTitle className="text-2xl font-bold text-center">Crear Cuenta</CardTitle>
+        <CardTitle className="text-2xl font-bold text-center">
+          Crear Cuenta
+        </CardTitle>
         <CardDescription className="text-center">
           Regístrate para acceder a Aurum INC
         </CardDescription>
@@ -65,7 +111,7 @@ const RegisterForm = () => {
               required
             />
           </div>
-          
+
           <div className="space-y-2">
             <Label htmlFor="email">Correo Electrónico</Label>
             <Input
@@ -77,13 +123,10 @@ const RegisterForm = () => {
               required
             />
           </div>
-          
+
           <div className="space-y-2">
             <Label htmlFor="role">Tipo de Usuario</Label>
-            <Select
-              value={role}
-              onValueChange={setRole}
-            >
+            <Select value={role} onValueChange={setRole}>
               <SelectTrigger>
                 <SelectValue placeholder="Selecciona tu rol" />
               </SelectTrigger>
@@ -93,7 +136,7 @@ const RegisterForm = () => {
               </SelectContent>
             </Select>
           </div>
-          
+
           <div className="space-y-2">
             <Label htmlFor="password">Contraseña</Label>
             <div className="relative">
@@ -124,7 +167,7 @@ const RegisterForm = () => {
               </Button>
             </div>
           </div>
-          
+
           <div className="space-y-2">
             <Label htmlFor="confirmPassword">Confirmar Contraseña</Label>
             <Input
@@ -136,9 +179,9 @@ const RegisterForm = () => {
               required
             />
           </div>
-          
-          <Button 
-            type="submit" 
+
+          <Button
+            type="submit"
             className="w-full bg-primary hover:bg-primary/90"
             disabled={isLoading}
           >

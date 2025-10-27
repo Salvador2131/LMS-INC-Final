@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -11,13 +10,15 @@ import Dashboard from "./pages/Dashboard";
 import Courses from "./pages/Courses";
 import CreateCourse from "./pages/CreateCourse";
 import Forum from "./pages/Forum";
-import Assignments from "./pages/Assignments";
+import Tareas from "./pages/Tareas";
 import Calendar from "./pages/Calendar";
 import NotFound from "./pages/NotFound";
 import Students from "./pages/Students";
 import CourseDetail from "./pages/CourseDetail";
 import ManageCourse from "./pages/ManageCourse";
 import ManageCourses from "./pages/ManageCourses";
+import Attendance from "./pages/Attendance";
+import Reports from "./pages/Reports";
 import NewUser from "./pages/NewUser";
 import Profile from "./pages/Profile";
 import Grades from "./pages/Grades";
@@ -42,7 +43,9 @@ const App = () => (
           <Route path="/course/:id/manage" element={<ManageCourse />} />
           <Route path="/manage-courses" element={<ManageCourses />} />
           <Route path="/forum" element={<Forum />} />
-          <Route path="/assignments" element={<Assignments />} />
+          <Route path="/tareas" element={<Tareas />} />
+          <Route path="/attendance" element={<Attendance />} />
+          <Route path="/reports" element={<Reports />} />
           <Route path="/calendar" element={<Calendar />} />
           <Route path="/students" element={<Students />} />
           <Route path="/new-user" element={<NewUser />} />

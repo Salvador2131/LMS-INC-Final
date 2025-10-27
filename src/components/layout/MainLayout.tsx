@@ -1,4 +1,3 @@
-
 import { ReactNode, useState } from "react";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
@@ -30,7 +29,7 @@ const MainLayout = ({ children, requireAuth = true }: MainLayoutProps) => {
       <Navbar toggleSidebar={toggleSidebar} />
       <div className="flex h-[calc(100vh-4rem)]">
         <Sidebar open={sidebarOpen} setOpen={setSidebarOpen} />
-        <main 
+        <main
           className={`flex-1 overflow-auto p-4 transition-all duration-300 ${
             sidebarOpen && !isMobile ? "ml-64" : isMobile ? "ml-0" : "ml-20"
           }`}

@@ -1,8 +1,20 @@
-
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { CalendarIcon, FileTextIcon, GraduationCapIcon, PlusIcon, UsersIcon } from "lucide-react";
+import {
+  CalendarIcon,
+  FileTextIcon,
+  GraduationCapIcon,
+  PlusIcon,
+  UsersIcon,
+} from "lucide-react";
 import CourseGrid from "../courses/CourseGrid";
 
 const TeacherDashboard = () => {
@@ -12,46 +24,85 @@ const TeacherDashboard = () => {
       id: "1",
       title: "Matemáticas Avanzadas",
       instructor: "Prof. Juan Pérez",
-      coverImage: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      coverImage:
+        "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
       category: "Matemáticas",
       students: 28,
       startDate: "10/05/2025",
-      schedule: "Lun, Mié 15:00-17:00"
+      schedule: "Lun, Mié 15:00-17:00",
     },
     {
       id: "2",
       title: "Álgebra Lineal",
       instructor: "Prof. Juan Pérez",
-      coverImage: "https://images.unsplash.com/photo-1509228468518-180dd4864904?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      coverImage:
+        "https://images.unsplash.com/photo-1509228468518-180dd4864904?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
       category: "Matemáticas",
       students: 36,
       startDate: "05/05/2025",
-      schedule: "Mar, Jue 10:00-12:00"
+      schedule: "Mar, Jue 10:00-12:00",
     },
     {
       id: "3",
       title: "Geometría Analítica",
       instructor: "Prof. Juan Pérez",
-      coverImage: "https://images.unsplash.com/photo-1636466497217-26a5865ebd3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
+      coverImage:
+        "https://images.unsplash.com/photo-1636466497217-26a5865ebd3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
       category: "Matemáticas",
       students: 22,
       startDate: "15/05/2025",
-      schedule: "Vie 14:00-18:00"
-    }
+      schedule: "Vie 14:00-18:00",
+    },
   ];
-  
-  // Mock pending assignments to grade
+
+  // Mock pending tareas to grade
   const pendingGrades = [
-    { id: "1", title: "Ecuaciones Diferenciales", course: "Matemáticas Avanzadas", submitted: 25, total: 28 },
-    { id: "2", title: "Matrices y Determinantes", course: "Álgebra Lineal", submitted: 30, total: 36 },
-    { id: "3", title: "Circunferencia", course: "Geometría Analítica", submitted: 18, total: 22 }
+    {
+      id: "1",
+      title: "Ecuaciones Diferenciales",
+      course: "Matemáticas Avanzadas",
+      submitted: 25,
+      total: 28,
+    },
+    {
+      id: "2",
+      title: "Matrices y Determinantes",
+      course: "Álgebra Lineal",
+      submitted: 30,
+      total: 36,
+    },
+    {
+      id: "3",
+      title: "Circunferencia",
+      course: "Geometría Analítica",
+      submitted: 18,
+      total: 22,
+    },
   ];
-  
+
   // Mock upcoming classes
   const upcomingClasses = [
-    { id: "1", course: "Matemáticas Avanzadas", date: "Lunes, 17 May", time: "15:00 - 17:00", room: "A-101" },
-    { id: "2", course: "Álgebra Lineal", date: "Martes, 18 May", time: "10:00 - 12:00", room: "B-205" },
-    { id: "3", course: "Geometría Analítica", date: "Viernes, 21 May", time: "14:00 - 18:00", room: "C-310" }
+    {
+      id: "1",
+      course: "Matemáticas Avanzadas",
+      date: "Lunes, 17 May",
+      time: "15:00 - 17:00",
+      room: "A-101",
+    },
+    {
+      id: "2",
+      course: "Álgebra Lineal",
+      date: "Martes, 18 May",
+      time: "10:00 - 12:00",
+      room: "B-205",
+    },
+    {
+      id: "3",
+      course: "Geometría Analítica",
+      date: "Viernes, 21 May",
+      time: "14:00 - 18:00",
+      room: "C-310",
+    },
   ];
 
   return (
@@ -63,7 +114,7 @@ const TeacherDashboard = () => {
           Crear Nuevo Curso
         </Button>
       </div>
-      
+
       {/* Stats cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <Card>
@@ -79,7 +130,7 @@ const TeacherDashboard = () => {
             </div>
           </CardContent>
         </Card>
-        
+
         <Card>
           <CardHeader className="pb-2">
             <CardTitle className="text-sm font-medium text-muted-foreground">
@@ -93,7 +144,7 @@ const TeacherDashboard = () => {
             </div>
           </CardContent>
         </Card>
-        
+
         <Card>
           <CardHeader className="pb-2">
             <CardTitle className="text-sm font-medium text-muted-foreground">
@@ -107,7 +158,7 @@ const TeacherDashboard = () => {
             </div>
           </CardContent>
         </Card>
-        
+
         <Card>
           <CardHeader className="pb-2">
             <CardTitle className="text-sm font-medium text-muted-foreground">
@@ -122,7 +173,7 @@ const TeacherDashboard = () => {
           </CardContent>
         </Card>
       </div>
-      
+
       {/* Courses section */}
       <div className="space-y-4">
         <div className="flex justify-between items-center">
@@ -131,7 +182,7 @@ const TeacherDashboard = () => {
         </div>
         <CourseGrid courses={courses} role="profesor" />
       </div>
-      
+
       {/* Tabs for different teacher functions */}
       <Tabs defaultValue="pending">
         <TabsList className="grid grid-cols-3 w-full max-w-md">
@@ -139,22 +190,26 @@ const TeacherDashboard = () => {
           <TabsTrigger value="schedule">Horario</TabsTrigger>
           <TabsTrigger value="students">Estudiantes</TabsTrigger>
         </TabsList>
-        
+
         <TabsContent value="pending" className="space-y-4 pt-4">
           <Card>
             <CardHeader>
-              <CardTitle className="text-lg">Tareas Pendientes de Calificar</CardTitle>
+              <CardTitle className="text-lg">
+                Tareas Pendientes de Calificar
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                {pendingGrades.map(assignment => (
-                  <div 
-                    key={assignment.id} 
+                {pendingGrades.map((assignment) => (
+                  <div
+                    key={assignment.id}
                     className="flex justify-between items-center border-b pb-3 last:border-0 last:pb-0"
                   >
                     <div>
                       <p className="font-medium">{assignment.title}</p>
-                      <p className="text-sm text-muted-foreground">{assignment.course}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {assignment.course}
+                      </p>
                     </div>
                     <div className="flex items-center gap-4">
                       <div className="text-right">
@@ -178,7 +233,7 @@ const TeacherDashboard = () => {
             </CardFooter>
           </Card>
         </TabsContent>
-        
+
         <TabsContent value="schedule" className="space-y-4 pt-4">
           <Card>
             <CardHeader>
@@ -186,9 +241,9 @@ const TeacherDashboard = () => {
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                {upcomingClasses.map(cls => (
-                  <div 
-                    key={cls.id} 
+                {upcomingClasses.map((cls) => (
+                  <div
+                    key={cls.id}
                     className="flex justify-between items-center border-b pb-3 last:border-0 last:pb-0"
                   >
                     <div>
@@ -212,7 +267,7 @@ const TeacherDashboard = () => {
             </CardFooter>
           </Card>
         </TabsContent>
-        
+
         <TabsContent value="students" className="space-y-4 pt-4">
           <Card>
             <CardHeader>
@@ -220,9 +275,9 @@ const TeacherDashboard = () => {
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                {courses.map(course => (
-                  <div 
-                    key={course.id} 
+                {courses.map((course) => (
+                  <div
+                    key={course.id}
                     className="flex justify-between items-center border-b pb-3 last:border-0 last:pb-0"
                   >
                     <div>

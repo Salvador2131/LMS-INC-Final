@@ -1,9 +1,15 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { useToast } from "@/components/ui/use-toast";
 import { EyeIcon, EyeOffIcon } from "lucide-react";
 import { loginUser } from "@/lib/auth";
@@ -17,21 +23,20 @@ const LoginForm = () => {
   const { toast } = useToast();
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    
-    // Intento de inicio de sesión con nuestro sistema simulado
-    setTimeout(() => {
-      const user = loginUser(email, password);
-      
+
+    try {
+      const user = await loginUser(email, password);
+
       if (user) {
         console.log("Login successful:", { email, role: user.role });
         toast({
           title: "Inicio de sesión exitoso",
           description: `Bienvenido a Aorus INC, ${user.name}`,
         });
-        
+
         // Redirección basada en el rol
         navigate("/dashboard");
       } else {
@@ -42,15 +47,24 @@ const LoginForm = () => {
           variant: "destructive",
         });
       }
-      
+    } catch (error) {
+      console.error("Login error:", error);
+      toast({
+        title: "Error de inicio de sesión",
+        description: "Ocurrió un error inesperado. Inténtalo de nuevo.",
+        variant: "destructive",
+      });
+    } finally {
       setIsLoading(false);
-    }, 1000);
+    }
   };
 
   return (
     <Card className="w-full max-w-md">
       <CardHeader>
-        <CardTitle className="text-2xl font-bold text-center">Iniciar Sesión</CardTitle>
+        <CardTitle className="text-2xl font-bold text-center">
+          Iniciar Sesión
+        </CardTitle>
         <CardDescription className="text-center">
           Ingresa tus credenciales para acceder a tu cuenta
         </CardDescription>
@@ -68,7 +82,7 @@ const LoginForm = () => {
               required
             />
           </div>
-          
+
           <div className="space-y-2">
             <Label htmlFor="password">Contraseña</Label>
             <div className="relative">
@@ -98,21 +112,21 @@ const LoginForm = () => {
               </Button>
             </div>
           </div>
-          
+
           <div className="text-sm text-right">
             <a href="#" className="text-primary hover:underline">
               ¿Olvidaste tu contraseña?
             </a>
           </div>
-          
-          <Button 
-            type="submit" 
+
+          <Button
+            type="submit"
             className="w-full bg-primary hover:bg-primary/90"
             disabled={isLoading}
           >
             {isLoading ? "Iniciando sesión..." : "Iniciar Sesión"}
           </Button>
-          
+
           <div className="text-xs text-center text-muted-foreground mt-4">
             <p>Credenciales de prueba:</p>
             <p>Admin: admin@aorusinc.com / admin123</p>

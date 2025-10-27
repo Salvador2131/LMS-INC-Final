@@ -4,11 +4,21 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "node scripts/check-env.js && vite",
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "setup-env": "node scripts/setup-env.js",
+    "setup-db": "node scripts/setup-database.js",
+    "setup-supabase": "node scripts/setup-supabase-auto.js",
+    "configure-once": "node scripts/configure-once.js",
+    "switch-auth": "node scripts/switch-auth.js",
+    "verify-env": "node scripts/verify-env.js",
+    "fix-env": "node scripts/fix-env.js",
+    "auto-fix-env": "node scripts/auto-fix-env.js",
+    "check-env": "node scripts/check-env.js",
+    "postinstall": "npm run setup-env"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",

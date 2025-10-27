@@ -1,0 +1,644 @@
+[
+  {
+    "id": "TC001",
+    "title": "User Registration - Valid Inputs",
+    "description": "Verify that a user can successfully register with valid input data for each role (student, teacher, admin).",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to the registration page."
+      },
+      {
+        "type": "action",
+        "description": "Input valid user details with role selected as student."
+      },
+      {
+        "type": "action",
+        "description": "Submit the registration form."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm that registration is successful and user is prompted to verify or redirected to login."
+      },
+      {
+        "type": "action",
+        "description": "Repeat registration for teacher role with valid inputs."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm successful registration for teacher role as well."
+      },
+      {
+        "type": "action",
+        "description": "Repeat registration for admin role with valid inputs."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm successful registration for admin role."
+      }
+    ]
+  },
+  {
+    "id": "TC002",
+    "title": "User Registration - Invalid Inputs Handling",
+    "description": "Verify proper error messages and validation for invalid registration input such as missing required fields, invalid email formats, weak passwords, and invalid role selection.",
+    "category": "error handling",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to the registration page."
+      },
+      {
+        "type": "action",
+        "description": "Attempt to register with missing required fields (e.g., email or password missing)."
+      },
+      {
+        "type": "assertion",
+        "description": "Check appropriate validation error messages are displayed."
+      },
+      {
+        "type": "action",
+        "description": "Attempt to register with invalid email format."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify email format validation error shown."
+      },
+      {
+        "type": "action",
+        "description": "Attempt to register with weak passwords (too short or no special chars)."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify password strength validation error shown."
+      },
+      {
+        "type": "action",
+        "description": "Attempt to register without selecting a role or with an invalid role."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm role selection validation error appears."
+      }
+    ]
+  },
+  {
+    "id": "TC003",
+    "title": "User Login - Successful Authentication",
+    "description": "Verify that registered users can login successfully with correct credentials and are redirected to role-specific dashboards.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to login page."
+      },
+      {
+        "type": "action",
+        "description": "Input valid username/email and password for a student user."
+      },
+      {
+        "type": "action",
+        "description": "Click login button."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm login succeeds and student dashboard appears."
+      },
+      {
+        "type": "action",
+        "description": "Logout the student user."
+      },
+      {
+        "type": "action",
+        "description": "Repeat login flow for teacher user."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify redirect to teacher dashboard."
+      },
+      {
+        "type": "action",
+        "description": "Logout the teacher user."
+      },
+      {
+        "type": "action",
+        "description": "Repeat login flow for admin user."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify redirect to admin dashboard."
+      }
+    ]
+  },
+  {
+    "id": "TC004",
+    "title": "User Login - Failed Authentication",
+    "description": "Verify that login fails with invalid credentials and appropriate error messages are shown.",
+    "category": "error handling",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to login page."
+      },
+      {
+        "type": "action",
+        "description": "Input invalid username/email and password."
+      },
+      {
+        "type": "action",
+        "description": "Click login button."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify login is rejected with an informative error message."
+      },
+      {
+        "type": "action",
+        "description": "Attempt login with empty username and/or password fields."
+      },
+      {
+        "type": "assertion",
+        "description": "Check validation messages for required fields."
+      }
+    ]
+  },
+  {
+    "id": "TC005",
+    "title": "Role-based Access Control Enforcement",
+    "description": "Ensure that users can only access pages and perform actions allowed by their roles (student, teacher, admin).",
+    "category": "security",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Login as a student user."
+      },
+      {
+        "type": "action",
+        "description": "Attempt to access teacher-only and admin-only pages via URL."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm access is denied or user is redirected with a proper message."
+      },
+      {
+        "type": "action",
+        "description": "Login as a teacher user."
+      },
+      {
+        "type": "action",
+        "description": "Attempt to access admin-only pages."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify access restriction enforced."
+      },
+      {
+        "type": "action",
+        "description": "Login as an admin user."
+      },
+      {
+        "type": "action",
+        "description": "Verify the ability to access all areas including user management."
+      }
+    ]
+  },
+  {
+    "id": "TC006",
+    "title": "Course Creation and Management by Teacher",
+    "description": "Verify that teachers can create, edit, and delete courses successfully with proper validations.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Login as teacher."
+      },
+      {
+        "type": "action",
+        "description": "Navigate to course creation page."
+      },
+      {
+        "type": "action",
+        "description": "Fill course form with valid data and submit."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm new course is created and listed in course management."
+      },
+      {
+        "type": "action",
+        "description": "Edit an existing course with updated data."
+      },
+      {
+        "type": "assertion",
+        "description": "Check that course data is updated correctly."
+      },
+      {
+        "type": "action",
+        "description": "Delete a course."
+      },
+      {
+        "type": "assertion",
+        "description": "Ensure course is removed from the list."
+      }
+    ]
+  },
+  {
+    "id": "TC007",
+    "title": "Student Enrollment in Courses",
+    "description": "Check that students can browse available courses and enroll successfully.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Login as student."
+      },
+      {
+        "type": "action",
+        "description": "Navigate to courses page."
+      },
+      {
+        "type": "action",
+        "description": "View course details."
+      },
+      {
+        "type": "action",
+        "description": "Click enroll button."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify enrollment confirmation and course listed in student's dashboard."
+      }
+    ]
+  },
+  {
+    "id": "TC008",
+    "title": "Assignment Creation, Submission and Grading Workflow",
+    "description": "Verify that teachers can create assignments, students can submit them, and teachers can grade submissions successfully.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Login as teacher."
+      },
+      {
+        "type": "action",
+        "description": "Create an assignment for a course."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm assignment is listed under the course."
+      },
+      {
+        "type": "action",
+        "description": "Login as student enrolled in the course."
+      },
+      {
+        "type": "action",
+        "description": "Navigate to assignments page."
+      },
+      {
+        "type": "action",
+        "description": "Submit assignment successfully."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify submission confirmation shown."
+      },
+      {
+        "type": "action",
+        "description": "Login back as teacher."
+      },
+      {
+        "type": "action",
+        "description": "Access submitted assignment and assign grades."
+      },
+      {
+        "type": "assertion",
+        "description": "Check that graded assignments are updated and grades are visible to student."
+      }
+    ]
+  },
+  {
+    "id": "TC009",
+    "title": "Forum Discussion Create, Edit, and Display Posts",
+    "description": "Verify users can create, edit, and view forum posts within courses, and posts are properly displayed in the course forum.",
+    "category": "functional",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Login as any user enrolled in a course."
+      },
+      {
+        "type": "action",
+        "description": "Navigate to the course forum page."
+      },
+      {
+        "type": "action",
+        "description": "Create a new forum post with valid content."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm the post appears in the forum list."
+      },
+      {
+        "type": "action",
+        "description": "Edit the created post."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the post update is reflected in the forum."
+      }
+    ]
+  },
+  {
+    "id": "TC010",
+    "title": "Calendar System Displays Course Schedules and Events",
+    "description": "Ensure the calendar shows all course-related events and deadlines correctly and is updated dynamically with schedule changes.",
+    "category": "functional",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Login as any user."
+      },
+      {
+        "type": "action",
+        "description": "Navigate to the calendar page."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify calendar displays scheduled course events, assignment deadlines accurately."
+      },
+      {
+        "type": "action",
+        "description": "Add or update a course event as a teacher."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm calendar reflects new or updated event immediately."
+      }
+    ]
+  },
+  {
+    "id": "TC011",
+    "title": "Grades Tracking and Reporting Accuracy",
+    "description": "Verify that grades submitted by teachers are correctly calculated, stored, and displayed in grade reports for students.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Login as teacher and assign grades to student assignments."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm grades are saved and retrievable from the backend."
+      },
+      {
+        "type": "action",
+        "description": "Login as student."
+      },
+      {
+        "type": "action",
+        "description": "Navigate to grades page."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify grades are displayed accurately and correspond to assignments."
+      }
+    ]
+  },
+  {
+    "id": "TC012",
+    "title": "Dashboard Rendering and Role-based Content",
+    "description": "Check that dashboards load correctly and display appropriate role-specific information and controls for student, teacher, and admin users.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Login as student."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm student dashboard shows enrolled courses, upcoming deadlines, and grades summary."
+      },
+      {
+        "type": "action",
+        "description": "Logout and login as teacher."
+      },
+      {
+        "type": "assertion",
+        "description": "Check teacher dashboard includes course management, assignment stats, and forum overview."
+      },
+      {
+        "type": "action",
+        "description": "Logout and login as admin."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify admin dashboard displays user management controls and platform overview stats."
+      }
+    ]
+  },
+  {
+    "id": "TC013",
+    "title": "Reusable UI Components Consistency and Responsiveness",
+    "description": "Ensure that Radix UI and Tailwind CSS components render consistently across pages and adapt well on various screen sizes and devices.",
+    "category": "ui",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate through pages using UI components such as buttons, forms, dialogs, tables, and cards."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify consistent styling and behavior of components."
+      },
+      {
+        "type": "action",
+        "description": "Resize viewport or use mobile devices to test responsiveness."
+      },
+      {
+        "type": "assertion",
+        "description": "Ensure components adjust layout and remain usable on all tested screen sizes."
+      }
+    ]
+  },
+  {
+    "id": "TC014",
+    "title": "API Integration with Supabase Backend",
+    "description": "Verify that backend ASP.NET Core API endpoints correctly interface with Supabase for all CRUD operations related to users, courses, assignments, forums, and grades.",
+    "category": "integration",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Perform API calls for user registration, login, fetching profiles."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify responses match expected data and status codes."
+      },
+      {
+        "type": "action",
+        "description": "Execute course creation, update, delete API calls."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm backend correctly reflects changes and data consistency."
+      },
+      {
+        "type": "action",
+        "description": "Test assignment submission and grading API endpoints."
+      },
+      {
+        "type": "assertion",
+        "description": "Check data flow between frontend and database via API is intact."
+      },
+      {
+        "type": "action",
+        "description": "Test forum post creation and retrieval API endpoints."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify posts are correctly stored and returned."
+      }
+    ]
+  },
+  {
+    "id": "TC015",
+    "title": "Error Handling for Backend API Failures",
+    "description": "Test system behavior and error messages when backend API calls fail due to network issues, unauthorized access, or invalid requests.",
+    "category": "error handling",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Simulate backend API downtime or network error during user login."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify user sees a relevant error message and can retry."
+      },
+      {
+        "type": "action",
+        "description": "Attempt to perform restricted actions without authorization."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm that access is denied with clear messages."
+      },
+      {
+        "type": "action",
+        "description": "Send invalid or malformed data to API endpoints."
+      },
+      {
+        "type": "assertion",
+        "description": "Check that API returns validation errors and frontend displays them properly."
+      }
+    ]
+  },
+  {
+    "id": "TC016",
+    "title": "Logout Functionality Verification",
+    "description": "Ensure that users can logout successfully from any page and that post-logout access restrictions apply.",
+    "category": "functional",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Login as any user."
+      },
+      {
+        "type": "action",
+        "description": "Use logout control from header or sidebar."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm user is logged out and redirected to login page."
+      },
+      {
+        "type": "action",
+        "description": "Attempt to access authenticated pages after logout."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify access is blocked and login prompt shown."
+      }
+    ]
+  },
+  {
+    "id": "TC017",
+    "title": "Assignment Submission Edge Cases",
+    "description": "Test various edge cases for assignment submission such as submitting after deadline, no file uploaded, and large file uploads.",
+    "category": "error handling",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Login as student."
+      },
+      {
+        "type": "action",
+        "description": "Attempt to submit assignment after the deadline has passed."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify submission is rejected with appropriate message."
+      },
+      {
+        "type": "action",
+        "description": "Attempt submission with no file or incomplete data."
+      },
+      {
+        "type": "assertion",
+        "description": "Check validation errors prevent submission."
+      },
+      {
+        "type": "action",
+        "description": "Attempt to upload a file exceeding maximum allowed size."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm upload is blocked and user is notified."
+      }
+    ]
+  },
+  {
+    "id": "TC018",
+    "title": "Forum System Security and Content Moderation",
+    "description": "Validate prevention of malicious input such as XSS in forum posts and ability to edit/delete posts within permissions.",
+    "category": "security",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Create a forum post containing script tags or HTML injections."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify that input is sanitized and no scripts are executed in forum display."
+      },
+      {
+        "type": "action",
+        "description": "Attempt to edit or delete forum posts as owner and as other users."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm only authorized users can modify or remove posts."
+      }
+    ]
+  }
+]

@@ -1,58 +1,43 @@
-
 import MainLayout from "@/components/layout/MainLayout";
 import StudentDashboard from "@/components/dashboard/StudentDashboard";
 import TeacherDashboard from "@/components/dashboard/TeacherDashboard";
 import AdminDashboard from "@/components/dashboard/AdminDashboard";
-import { useState } from "react";
+import { useAuth } from "@/lib/auth";
 
 const Dashboard = () => {
-  // This would come from auth context in a real app
-  const [userRole, setUserRole] = useState<"estudiante" | "profesor" | "admin">("estudiante");
+  const { user, isAuthenticated } = useAuth();
+  const userRole = user?.role || "estudiante";
 
-  // For demonstration purposes, add buttons to switch between roles
-  const handleRoleChange = (role: "estudiante" | "profesor" | "admin") => {
-    setUserRole(role);
-  };
+  // Si no está autenticado, redirigir al login
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold mb-4">Acceso Denegado</h1>
+          <p className="text-muted-foreground mb-4">
+            Debes iniciar sesión para acceder al dashboard
+          </p>
+          <a
+            href="/login"
+            className="bg-primary text-primary-foreground px-4 py-2 rounded hover:bg-primary/90"
+          >
+            Ir al Login
+          </a>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <MainLayout>
-      {/* Role switcher for demo purposes */}
-      <div className="mb-6 p-3 bg-gray-100 rounded-md">
-        <p className="text-xs text-muted-foreground mb-2">
-          Demo: Cambiar de rol para ver diferentes dashboards
+      {/* Mostrar información del usuario */}
+      <div className="mb-6 p-4 bg-blue-50 rounded-md">
+        <h2 className="text-lg font-semibold mb-2">
+          ¡Bienvenido, {user?.name}!
+        </h2>
+        <p className="text-sm text-muted-foreground">
+          Rol: {user?.role} | Email: {user?.email}
         </p>
-        <div className="flex gap-2">
-          <button
-            onClick={() => handleRoleChange("estudiante")}
-            className={`px-3 py-1 rounded text-sm ${
-              userRole === "estudiante"
-                ? "bg-kampus-primary text-white"
-                : "bg-gray-200 hover:bg-gray-300"
-            }`}
-          >
-            Estudiante
-          </button>
-          <button
-            onClick={() => handleRoleChange("profesor")}
-            className={`px-3 py-1 rounded text-sm ${
-              userRole === "profesor"
-                ? "bg-kampus-primary text-white"
-                : "bg-gray-200 hover:bg-gray-300"
-            }`}
-          >
-            Profesor
-          </button>
-          <button
-            onClick={() => handleRoleChange("admin")}
-            className={`px-3 py-1 rounded text-sm ${
-              userRole === "admin"
-                ? "bg-kampus-primary text-white"
-                : "bg-gray-200 hover:bg-gray-300"
-            }`}
-          >
-            Administrador
-          </button>
-        </div>
       </div>
 
       {userRole === "estudiante" && <StudentDashboard />}

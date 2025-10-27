@@ -1,0 +1,16 @@
+{
+  "status": "init",
+  "type": "frontend",
+  "scope": "codebase",
+  "localEndpoint": "http://localhost:8080",
+  "executionArgs": {
+    "projectName": "learn-hub-plus-nuevo",
+    "projectPath": "C:\\Users\\Salva\\Documents\\Proyecto INC Solutions\\learn-hub-plus-nuevo",
+    "testIds": [],
+    "additionalInstruction": "Evaluate the complete learning management system including authentication, course management, user roles, and all UI components",
+    "envs": {
+      "API_KEY": "sk-user-MO-tZ5F5XD6sLIW7p6fOHwZbuC5SWCm-E-x9GYauzqja8uz-kEi6CPpXil_U1tkYHVQtja6vOiqgoMwXTNMr1xrtTas-5kQcnsFiJTcUjTwsqNHMdewQKLaMQZMajknbDj0"
+    }
+  },
+  "serverPort": 52112
+}

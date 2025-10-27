@@ -1,5 +1,9 @@
-
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { CalendarIcon, ClockIcon, UsersIcon } from "lucide-react";
@@ -13,15 +17,16 @@ interface CourseCardProps {
     category: string;
     progress?: number;
     students?: number;
+    totalStudents?: number;
     startDate?: string;
     schedule?: string;
+    status?: string;
     pais?: string;
     region?: string;
     ciudad?: string;
     concesionario?: string;
     empresa?: string;
     tipo?: string;
-    status?: string;
   };
   role: "estudiante" | "profesor" | "admin";
 }
@@ -34,8 +39,10 @@ const CourseCard = ({ course, role }: CourseCardProps) => {
     category,
     progress,
     students,
+    totalStudents,
     startDate,
-    schedule
+    schedule,
+    status,
   } = course;
 
   return (
@@ -46,18 +53,31 @@ const CourseCard = ({ course, role }: CourseCardProps) => {
           alt={title}
           className="w-full h-full object-cover"
         />
-        <Badge className="absolute top-2 right-2 bg-primary">
-          {category}
-        </Badge>
+        <Badge className="absolute top-2 right-2 bg-primary">{category}</Badge>
+        {role === "admin" && status && (
+          <Badge
+            className={`absolute top-2 left-2 ${
+              status === "Activo"
+                ? "bg-green-500"
+                : status === "En Revisión"
+                ? "bg-yellow-500"
+                : status === "Pausado"
+                ? "bg-red-500"
+                : "bg-gray-500"
+            }`}
+          >
+            {status}
+          </Badge>
+        )}
       </div>
-      
+
       <CardHeader className="pb-2">
         <h3 className="font-bold text-lg line-clamp-2">{title}</h3>
         <p className="text-sm text-muted-foreground">
           {role === "estudiante" ? "Prof. " + instructor : instructor}
         </p>
       </CardHeader>
-      
+
       <CardContent className="pb-2 flex-grow">
         {role === "estudiante" && progress !== undefined && (
           <div className="space-y-1">
@@ -68,15 +88,23 @@ const CourseCard = ({ course, role }: CourseCardProps) => {
             <Progress value={progress} className="h-2" />
           </div>
         )}
-        
+
         {role === "profesor" && students !== undefined && (
           <div className="flex items-center text-sm text-muted-foreground">
             <UsersIcon className="h-4 w-4 mr-1" />
             <span>{students} estudiantes</span>
           </div>
         )}
+
+        {role === "admin" &&
+          (totalStudents !== undefined || students !== undefined) && (
+            <div className="flex items-center text-sm text-muted-foreground">
+              <UsersIcon className="h-4 w-4 mr-1" />
+              <span>{totalStudents || students} estudiantes</span>
+            </div>
+          )}
       </CardContent>
-      
+
       <CardFooter className="text-xs text-muted-foreground">
         <div className="w-full space-y-1">
           {startDate && (
@@ -85,7 +113,7 @@ const CourseCard = ({ course, role }: CourseCardProps) => {
               <span>Inicio: {startDate}</span>
             </div>
           )}
-          
+
           {schedule && (
             <div className="flex items-center">
               <ClockIcon className="h-3.5 w-3.5 mr-1" />

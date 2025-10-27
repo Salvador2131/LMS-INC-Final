@@ -1,0 +1,16 @@
+C:\Users\Salva\Documents\Proyecto INC Solutions\learn-hub-plus-nuevo\backend\LearnHubPlus.Infrastructure\bin\Debug\net9.0\LearnHubPlus.Infrastructure.deps.json
+C:\Users\Salva\Documents\Proyecto INC Solutions\learn-hub-plus-nuevo\backend\LearnHubPlus.Infrastructure\bin\Debug\net9.0\LearnHubPlus.Infrastructure.dll
+C:\Users\Salva\Documents\Proyecto INC Solutions\learn-hub-plus-nuevo\backend\LearnHubPlus.Infrastructure\bin\Debug\net9.0\LearnHubPlus.Infrastructure.pdb
+C:\Users\Salva\Documents\Proyecto INC Solutions\learn-hub-plus-nuevo\backend\LearnHubPlus.Infrastructure\bin\Debug\net9.0\LearnHubPlus.Shared.dll
+C:\Users\Salva\Documents\Proyecto INC Solutions\learn-hub-plus-nuevo\backend\LearnHubPlus.Infrastructure\bin\Debug\net9.0\LearnHubPlus.Shared.pdb
+C:\Users\Salva\Documents\Proyecto INC Solutions\learn-hub-plus-nuevo\backend\LearnHubPlus.Infrastructure\obj\Debug\net9.0\LearnHubPlus.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Salva\Documents\Proyecto INC Solutions\learn-hub-plus-nuevo\backend\LearnHubPlus.Infrastructure\obj\Debug\net9.0\LearnHubPlus.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Salva\Documents\Proyecto INC Solutions\learn-hub-plus-nuevo\backend\LearnHubPlus.Infrastructure\obj\Debug\net9.0\LearnHubPlus.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Salva\Documents\Proyecto INC Solutions\learn-hub-plus-nuevo\backend\LearnHubPlus.Infrastructure\obj\Debug\net9.0\LearnHubPlus.Infrastructure.AssemblyInfo.cs
+C:\Users\Salva\Documents\Proyecto INC Solutions\learn-hub-plus-nuevo\backend\LearnHubPlus.Infrastructure\obj\Debug\net9.0\LearnHubPlus.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Salva\Documents\Proyecto INC Solutions\learn-hub-plus-nuevo\backend\LearnHubPlus.Infrastructure\obj\Debug\net9.0\LearnHubPlus.Infrastructure.sourcelink.json
+C:\Users\Salva\Documents\Proyecto INC Solutions\learn-hub-plus-nuevo\backend\LearnHubPlus.Infrastructure\obj\Debug\net9.0\LearnHub.316DD604.Up2Date
+C:\Users\Salva\Documents\Proyecto INC Solutions\learn-hub-plus-nuevo\backend\LearnHubPlus.Infrastructure\obj\Debug\net9.0\LearnHubPlus.Infrastructure.dll
+C:\Users\Salva\Documents\Proyecto INC Solutions\learn-hub-plus-nuevo\backend\LearnHubPlus.Infrastructure\obj\Debug\net9.0\refint\LearnHubPlus.Infrastructure.dll
+C:\Users\Salva\Documents\Proyecto INC Solutions\learn-hub-plus-nuevo\backend\LearnHubPlus.Infrastructure\obj\Debug\net9.0\LearnHubPlus.Infrastructure.pdb
+C:\Users\Salva\Documents\Proyecto INC Solutions\learn-hub-plus-nuevo\backend\LearnHubPlus.Infrastructure\obj\Debug\net9.0\ref\LearnHubPlus.Infrastructure.dll

@@ -1,0 +1,252 @@
+{
+  "meta": {
+    "project": "LearnHub Plus",
+    "date": "2025-09-29",
+    "prepared_by": "Software Development Manager"
+  },
+  "product_overview": "LearnHub Plus is a comprehensive learning management system designed to facilitate online education through course management, user roles, assignments, forums, and integrated calendar and grade tracking functionalities.",
+  "core_goals": [
+    "Provide a secure and robust authentication system with multiple user roles.",
+    "Enable efficient course creation, management, and enrollment.",
+    "Support assignment creation, submission, and grading workflows.",
+    "Facilitate communication among users via a discussion forum system.",
+    "Offer tailored dashboards for students, teachers, and administrators to enhance user experience.",
+    "Integrate calendar and scheduling to keep users informed of course events and deadlines.",
+    "Ensure scalability and maintainability through a modern tech stack including React, ASP.NET Core, and Supabase.",
+    "Deliver a consistent and accessible user interface with a reusable UI component library."
+  ],
+  "key_features": [
+    "Authentication system with login, registration, and logout using Supabase Auth.",
+    "Role-based access control supporting student, teacher, and admin profiles.",
+    "Comprehensive course management - creation, viewing, updating, and organization.",
+    "Assignment management including creation, assessment, and submission handling.",
+    "Discussion forums for each course to facilitate peer and instructor communication.",
+    "Personalized dashboards for different user types covering relevant data and controls.",
+    "Calendar system displaying course schedules and key events.",
+    "Grade tracking and reporting capabilities.",
+    "Reusable UI components built with Radix UI and Tailwind CSS for consistency.",
+    "Backend ASP.NET Core API integrated with Supabase for data operations.",
+    "PostgreSQL database schema designed for LMS operations.",
+    "Utility functions and hooks that promote code reuse and responsiveness."
+  ],
+  "user_flow_summary": [
+    "User registers an account and selects a role (student, teacher, admin).",
+    "User logs in and is directed to a role-specific dashboard.",
+    "Teachers create and manage courses and assignments via course and assignment pages.",
+    "Students view courses, enroll, submit assignments, and participate in forums.",
+    "Users engage in course-related discussions using the forum system.",
+    "Administrators manage users and oversee platform activities from the admin dashboard.",
+    "Users access calendar views to track schedules and deadlines.",
+    "Grades are tracked and displayed within the user's dashboard and dedicated grade pages."
+  ],
+  "validation_criteria": [
+    "Successful user authentication covering registration, login, logout.",
+    "Role-based access control enforced across all sections.",
+    "Accurate creation, editing, and deletion of courses and assignments.",
+    "Reliable submission and grading process for assignments.",
+    "Forum posts created, edited, and displayed correctly within courses.",
+    "Calendar events reflect actual course schedules and updates.",
+    "Grades are calculated and displayed accurately.",
+    "Dashboards update dynamically based on user interactions and roles.",
+    "UI components are consistent across the platform and responsive on multiple devices.",
+    "API endpoints correctly interact with the Supabase backend and database."
+  ],
+  "code_summary": {
+    "tech_stack": [
+      "TypeScript",
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "Supabase",
+      "C#",
+      ".NET 9",
+      "ASP.NET Core",
+      "PostgreSQL",
+      "Radix UI",
+      "React Router",
+      "React Hook Form",
+      "Zod",
+      "TanStack Query"
+    ],
+    "features": [
+      {
+        "name": "Authentication System",
+        "description": "Complete authentication system with login, register, and logout functionality using Supabase Auth",
+        "files": [
+          "src/lib/auth.ts",
+          "src/lib/supabase.ts",
+          "src/components/auth/LoginForm.tsx",
+          "src/components/auth/RegisterForm.tsx",
+          "src/pages/Login.tsx",
+          "src/pages/Register.tsx"
+        ]
+      },
+      {
+        "name": "User Management",
+        "description": "User profile management with role-based access control (student, teacher, admin)",
+        "files": [
+          "src/pages/Profile.tsx",
+          "src/pages/NewUser.tsx",
+          "src/pages/Students.tsx",
+          "backend/LearnHubPlus.API/Controllers/UsersController.cs"
+        ]
+      },
+      {
+        "name": "Course Management",
+        "description": "Complete course management system for creating, viewing, and managing courses",
+        "files": [
+          "src/pages/Courses.tsx",
+          "src/pages/CreateCourse.tsx",
+          "src/pages/CourseDetail.tsx",
+          "src/pages/ManageCourse.tsx",
+          "src/pages/ManageCourses.tsx",
+          "src/components/courses/CourseCard.tsx",
+          "src/components/courses/CourseGrid.tsx",
+          "src/components/courses/CreateCourseForm.tsx"
+        ]
+      },
+      {
+        "name": "Dashboard System",
+        "description": "Role-based dashboards for different user types (student, teacher, admin)",
+        "files": [
+          "src/pages/Dashboard.tsx",
+          "src/components/dashboard/StudentDashboard.tsx",
+          "src/components/dashboard/TeacherDashboard.tsx",
+          "src/components/dashboard/AdminDashboard.tsx"
+        ]
+      },
+      {
+        "name": "Assignment System",
+        "description": "Assignment creation, management, and submission system",
+        "files": [
+          "src/pages/Assignments.tsx",
+          "src/components/assessment/AssignmentCard.tsx",
+          "src/components/assessment/QuizQuestion.tsx"
+        ]
+      },
+      {
+        "name": "Forum System",
+        "description": "Discussion forum for course-related communications",
+        "files": [
+          "src/pages/Forum.tsx",
+          "src/components/forum/ForumPost.tsx",
+          "src/components/forum/CreatePostForm.tsx"
+        ]
+      },
+      {
+        "name": "Calendar System",
+        "description": "Calendar view for course schedules and events",
+        "files": [
+          "src/pages/Calendar.tsx"
+        ]
+      },
+      {
+        "name": "Grades Management",
+        "description": "Grade tracking and management system",
+        "files": [
+          "src/pages/Grades.tsx"
+        ]
+      },
+      {
+        "name": "Layout Components",
+        "description": "Reusable layout components including header, sidebar, and main layout",
+        "files": [
+          "src/components/layout/Header.tsx",
+          "src/components/layout/Sidebar.tsx",
+          "src/components/layout/MainLayout.tsx",
+          "src/components/layout/Navbar.tsx"
+        ]
+      },
+      {
+        "name": "UI Component Library",
+        "description": "Comprehensive UI component library built with Radix UI and Tailwind CSS",
+        "files": [
+          "src/components/ui/button.tsx",
+          "src/components/ui/input.tsx",
+          "src/components/ui/card.tsx",
+          "src/components/ui/dialog.tsx",
+          "src/components/ui/form.tsx",
+          "src/components/ui/toast.tsx",
+          "src/components/ui/table.tsx",
+          "src/components/ui/badge.tsx",
+          "src/components/ui/avatar.tsx",
+          "src/components/ui/dropdown-menu.tsx",
+          "src/components/ui/select.tsx",
+          "src/components/ui/textarea.tsx",
+          "src/components/ui/checkbox.tsx",
+          "src/components/ui/radio-group.tsx",
+          "src/components/ui/switch.tsx",
+          "src/components/ui/slider.tsx",
+          "src/components/ui/progress.tsx",
+          "src/components/ui/alert.tsx",
+          "src/components/ui/alert-dialog.tsx",
+          "src/components/ui/accordion.tsx",
+          "src/components/ui/calendar.tsx",
+          "src/components/ui/date-picker.tsx",
+          "src/components/ui/popover.tsx",
+          "src/components/ui/tooltip.tsx",
+          "src/components/ui/sheet.tsx",
+          "src/components/ui/tabs.tsx",
+          "src/components/ui/separator.tsx",
+          "src/components/ui/scroll-area.tsx",
+          "src/components/ui/resizable.tsx",
+          "src/components/ui/command.tsx",
+          "src/components/ui/context-menu.tsx",
+          "src/components/ui/hover-card.tsx",
+          "src/components/ui/menubar.tsx",
+          "src/components/ui/navigation-menu.tsx",
+          "src/components/ui/toggle.tsx",
+          "src/components/ui/toggle-group.tsx",
+          "src/components/ui/sonner.tsx",
+          "src/components/ui/input-otp.tsx",
+          "src/components/ui/carousel.tsx",
+          "src/components/ui/aspect-ratio.tsx",
+          "src/components/ui/collapsible.tsx",
+          "src/components/ui/label.tsx",
+          "src/components/ui/index.ts"
+        ]
+      },
+      {
+        "name": "Backend API",
+        "description": "ASP.NET Core Web API with Supabase integration for data management",
+        "files": [
+          "backend/LearnHubPlus.API/Program.cs",
+          "backend/LearnHubPlus.API/Controllers/UsersController.cs",
+          "backend/LearnHubPlus.API/Services/SupabaseService.cs",
+          "backend/LearnHubPlus.API/Configuration/SupabaseConfig.cs",
+          "backend/LearnHubPlus.API/appsettings.json",
+          "backend/LearnHubPlus.API/appsettings.Development.json"
+        ]
+      },
+      {
+        "name": "Database Schema",
+        "description": "PostgreSQL database schema for the learning management system",
+        "files": [
+          "database/schema.sql"
+        ]
+      },
+      {
+        "name": "Configuration Management",
+        "description": "Environment configuration and setup scripts",
+        "files": [
+          "src/config/supabase.config.ts",
+          "scripts/setup-env.js",
+          "scripts/setup-database.js",
+          "scripts/setup-supabase.js",
+          "scripts/configure-once.js",
+          "scripts/check-supabase-config.js",
+          "scripts/auto-detect-env.js"
+        ]
+      },
+      {
+        "name": "Utility Functions",
+        "description": "Common utility functions and hooks",
+        "files": [
+          "src/lib/utils.ts",
+          "src/hooks/use-mobile.tsx",
+          "src/hooks/use-toast.ts"
+        ]
+      }
+    ]
+  }
+}

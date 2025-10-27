@@ -1,0 +1,12 @@
+C:\Users\Salva\Documents\Proyecto INC Solutions\learn-hub-plus-nuevo\backend\LearnHubPlus.Core\bin\Debug\net9.0\LearnHubPlus.Core.deps.json
+C:\Users\Salva\Documents\Proyecto INC Solutions\learn-hub-plus-nuevo\backend\LearnHubPlus.Core\bin\Debug\net9.0\LearnHubPlus.Core.dll
+C:\Users\Salva\Documents\Proyecto INC Solutions\learn-hub-plus-nuevo\backend\LearnHubPlus.Core\bin\Debug\net9.0\LearnHubPlus.Core.pdb
+C:\Users\Salva\Documents\Proyecto INC Solutions\learn-hub-plus-nuevo\backend\LearnHubPlus.Core\obj\Debug\net9.0\LearnHubPlus.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Salva\Documents\Proyecto INC Solutions\learn-hub-plus-nuevo\backend\LearnHubPlus.Core\obj\Debug\net9.0\LearnHubPlus.Core.AssemblyInfoInputs.cache
+C:\Users\Salva\Documents\Proyecto INC Solutions\learn-hub-plus-nuevo\backend\LearnHubPlus.Core\obj\Debug\net9.0\LearnHubPlus.Core.AssemblyInfo.cs
+C:\Users\Salva\Documents\Proyecto INC Solutions\learn-hub-plus-nuevo\backend\LearnHubPlus.Core\obj\Debug\net9.0\LearnHubPlus.Core.csproj.CoreCompileInputs.cache
+C:\Users\Salva\Documents\Proyecto INC Solutions\learn-hub-plus-nuevo\backend\LearnHubPlus.Core\obj\Debug\net9.0\LearnHubPlus.Core.sourcelink.json
+C:\Users\Salva\Documents\Proyecto INC Solutions\learn-hub-plus-nuevo\backend\LearnHubPlus.Core\obj\Debug\net9.0\LearnHubPlus.Core.dll
+C:\Users\Salva\Documents\Proyecto INC Solutions\learn-hub-plus-nuevo\backend\LearnHubPlus.Core\obj\Debug\net9.0\refint\LearnHubPlus.Core.dll
+C:\Users\Salva\Documents\Proyecto INC Solutions\learn-hub-plus-nuevo\backend\LearnHubPlus.Core\obj\Debug\net9.0\LearnHubPlus.Core.pdb
+C:\Users\Salva\Documents\Proyecto INC Solutions\learn-hub-plus-nuevo\backend\LearnHubPlus.Core\obj\Debug\net9.0\ref\LearnHubPlus.Core.dll
